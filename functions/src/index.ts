@@ -1,16 +1,18 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import {createTransport} from "nodemailer";
+import * as dotenv from "dotenv";
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
 
 admin.initializeApp();
+dotenv.config();
 
 export const transporter = createTransport({
-  host: "smtp.mailtrap.io",
-  port: 2525,
+  host: process.env.HOST,
+  port: process.env.PORT,
   auth: {
     user: "adedigbaadedotunemmanuel@gmail.com",
     pass: "881af7050a34e0",
